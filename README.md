@@ -67,7 +67,7 @@ Happy Project uses [SemVer](http://semver.org/) for versioning.
 ## Authors
 
 * **Shanthosh** - *Initial work* - [Happy-Project](https://github.com/Happy-Project)
-* * **Birnadin E.** - *Code Authoring* - [Birnadin Erick](https://github.com/BirnadinErick)
+* **Birnadin E.** - *Code Authoring* - [Birnadin Erick](https://github.com/BirnadinErick)
 
 ## License
 
