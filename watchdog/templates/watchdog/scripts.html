@@ -1,0 +1,13 @@
+{% load static %}
+<script src="{% static 'watchdog/js/jquery-3.6.0.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'watchdog/jspopper.min.js' %}"></script>
+<script src="{% static 'watchdog/js/jquery.slim.min.js' %}"></script>
+<script src="{% static 'watchdog/js/bootstrap.bundle.min.js' %}"></script>
+<script>
+$(window).on('load', function () {
+    $("body").addClass("loaded");
+});
+</script>
+<script src="{% static 'watchdog/js/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'watchdog/js/ytdefer.min.js' %}"></script>
+<script src="{% static 'watchdog/js/script.js' %}"></script>
