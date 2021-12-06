@@ -3,71 +3,84 @@
     <div class="footer__wrapper">
       <div class="container">
         <div class="row">
+          
           <div class="col-lg-4">
             <div class="footer__info">
+              
               <div class="footer__info--logo">
-                <img src="{% static 'watchdog/images/footer-logo.png' %}" alt="image">
+                <img src="{% static 'watchdog/images/footer-logo.png' %}" alt="footer_logo">
               </div>
+              
               <div class="footer__info--content">
                 <p class="paragraph dark">
-                    Something about our project
+                    Make 'em Happy!
                 </p>
+                
                 <div class="social">
                   <ul>
+                    {# TODO: populate the links #}
                     <li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                     <li class="twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li class="linkedin"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li class="youtube"><a href="#"><i class="fab fa-youtube"></i></a></li>
                   </ul>
                 </div>
+              
               </div>
             </div>
           </div>
+         
           <div class="col-lg-8">
             <div class="footer__content-wrapper">
               <div class="footer__list">
                 <ul>
-                  <li>Explore</li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Our Team</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">How It Works</a></li>
+                  <li>Explore the Happy</li>
+                  <li><a href="#">About Happy Project</a></li>
+                  <li><a href="#">Happy Devs</a></li>
+                  <li><a href="#">Hub</a></li>
+                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#">Scholarships</a></li>
+                  <li><a href="#">Sponsor</a></li>
                 </ul>
               </div>
+              
               <div class="footer__list">
                 <ul>
                   <li>Help</li>
-                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#">FAQs</a></li>
                   <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Support</a></li>
+                  <li><a href="#">Happy Community</a></li>
                   <li><a href="#">Terms of Service</a></li>
-                  <li><a href="#">Contact</a></li>
+                  <li><a href="#">Contact Us</a></li>
                 </ul>
               </div>
+              
               <div class="download-buttons">
-                <h5>Download</h5>
-                <a href="#" class="google-play">
-                  <i class="fab fa-google-play"></i>
+                <h5>Get In</h5>
+                {# TODO: populate the routes #}
+                <a href="{% url 'clientauth:index' %}" class="google-play">
+                  <i class="fad fa-book-reader"></i>
                   <div class="button-content">
-                    <h6>GET IT ON <span>Google Play</span></h6>
+                    <h6>LOG IN AS <span>A Student</span></h6>
                   </div>
                 </a>
-                <a href="#" class="apple-store">
-                  <i class="fab fa-apple"></i>
+                
+                <a href="{% url 'clientauth:index' %}" class="apple-store">
+                  <i class="fad fa-chalkboard-teacher"></i>
                   <div class="button-content">
-                    <h6>GET IT ON <span>Apple Store</span></h6>
+                    <h6>LOG IN AS<span>A Teacher</span></h6>
                   </div>
                 </a>
               </div>
+            
             </div>
           </div>
         </div>
+        
         <div class="row">
           <div class="footer__copy">
-            <h6>&copy; HAPPY-PROJECT FOUNDERS</h6>
+            <h6>&copy; HAPPY DEVS 2021</h6>
           </div>
         </div>
+     
       </div>
     </div>
   </footer>
