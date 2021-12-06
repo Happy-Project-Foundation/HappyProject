@@ -2,6 +2,8 @@ from typing import Any, Dict
 
 from django.views.generic import TemplateView
 
+from home.models import FAQ
+
 
 # Utility Classes ------------------------------------------------------------
 
@@ -84,7 +86,18 @@ class HomeView(TemplateView):
     ]
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        
+        # retrieval of super context
         context = super().get_context_data(**kwargs)
+        
+        # offers compilation
         context["offers"] = self._offers
+        
+        # howtos compilation
         context["howtos"] = self._howtos
+
+        # retrival and compilation of FAQs
+        faqs = FAQ.objects.all()[:10]
+        context["faqs"] = faqs
+
         return context

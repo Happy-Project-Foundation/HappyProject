@@ -1,0 +1,17 @@
+Is this Free?	
+Yes it is.
+
+What does "Free" here means? 
+Here "Free" means, Free-of-charge. Not to be confused with Free(as in Freedom). Our source text is offered as OSS, but some resources may contain copyrights of various institutions
+
+Where are these resources from? 
+All the resources are from internet and served by third-parties. Happy Project doesn't store any resources in its own servers, but it just index-s them and make them available to you.
+
+Found a bug, where to report?
+First of all, we are very sorry for the bug. Please be king enough to create am issue in our public GitHub repo -> https://github.com/Happy-Project/HappyProject/issues/new?assignees=Happy-Project&labels=bug%2C+enhancement&template=bug-announcement.md&title=%7BBUG%7D
+
+Have a suggestion, where to suggest?
+Thank you for such an interest😍. Please head to this link and create a new Feature Issue ->  https://github.com/Happy-Project/HappyProject/issues/new?assignees=&labels=enhancement&template=feature-request.md&title=%7BFEATURE%7D
+
+How can I sponsor the Project?
+First and foremost, "Thank You"😊. Please head to our GitHub page and refer the sponsor zone for more.
