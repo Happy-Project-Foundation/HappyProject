@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    {% include 'watchdog/head.html' %}
+
+    <body>
+        <div class="preloader">
+            <img src="assets/images/loading-logo.png" alt="image">
+        </div>
+        
+        {% include 'watchdog/header.html' %}
+
+        {% block children %}{% endblock children %}
+
+        {% include 'watchdog/footer.html' %}
+
+        {% include 'watchdog/scripts.html' %}
+    </body>
+</html>
