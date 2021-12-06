@@ -1,0 +1,34 @@
+{% load static %}
+
+<section class="screenshot" id="preview">
+    <div class="screenshot__wrapper">
+      <div class="container">
+        <div class="screenshot__info">
+          <h2 class="section-heading color-black">Have a look at what’s inside the app.</h2>
+          <div class="screenshot-nav">
+            <div class="screenshot-nav-prev"><i class="fad fa-long-arrow-left"></i></div>
+            <div class="screenshot-nav-next"><i class="fad fa-long-arrow-right"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-container screenshot-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide screenshot-slide">
+            <img src="{% static 'watchdog/images/phone-01.png' %}" alt="screenshots_images">
+          </div>
+          <div class="swiper-slide screenshot-slide">
+            <img src="{% static 'watchdog/images/phone-02.png' %}" alt="screenshots_images">
+          </div>
+          <div class="swiper-slide screenshot-slide">
+            <img src="{% static 'watchdog/images/phone-03.png' %}" alt="screenshots_images">
+          </div>
+          <div class="swiper-slide screenshot-slide">
+            <img src="{% static 'watchdog/images/phone-04.png' %}" alt="screenshots_images">
+          </div>
+          <div class="swiper-slide screenshot-slide">
+            <img src="{% static 'watchdog/images/phone-05.png' %}" alt="screenshots_images">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

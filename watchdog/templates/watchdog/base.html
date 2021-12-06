@@ -5,10 +5,10 @@
 
     <body>
         <div class="preloader">
-            <img src="assets/images/loading-logo.png" alt="image">
+            <img src="{% static 'watchdog/images/loading-logo.png' %}" alt="pre-loader image logo">
         </div>
         
-        {% include 'watchdog/header.html' %}
+        {% include 'watchdog/nav.html' %}
 
         {% block children %}{% endblock children %}
 
