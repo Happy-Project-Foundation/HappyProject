@@ -1,0 +1,35 @@
+<section class="feature">
+    <div class="container">
+      
+      <h2 class="section-heading color-black">
+        Get surprised by 
+        <br/>
+        what we offer.
+      </h2>
+      
+      <div class="row">
+        
+        {# Construction of offers #}
+        {# Alter the text in `home.views.HomeView._offers` #}
+        {# For security measures, don't escape data from server YET! #}
+        {% for offer in offers %}
+        <div class="col-lg-3 col-md-6">
+          {# `forloop.counter` determines the color of an item. #}
+          <div class="feature__box feature__box--{{forloop.counter}}">
+            <div class="icon icon-{{forloop.counter}}">
+              <i class="fad fa-{{offer.icon}}"></i>
+            </div>
+            <div class="feature__box__wrapper">
+              <div class="feature__box--content feature__box--content-{{forloop.counter}}">
+                <h3>{{offer.title}}</h3>
+                <p class="paragraph dark">
+                  {{offer.text}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>

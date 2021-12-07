@@ -1,0 +1,79 @@
+{% load static %}
+
+<section class="step">
+    <div class="step__wrapper">
+      <div class="container">
+        
+        <h2 class="section-heading color-black">
+          Jumpstart your Happy journey in just 3 steps.
+        </h2>
+        
+        <div class="row">
+          
+          <div class="col-lg-4">
+            <div class="step__box">
+              <div class="image">
+                <img src="{% static 'watchdog/images/phone-01.png' %}" alt="sign-up">
+              </div>
+              <div class="content">
+                <h3>HAPPY TO<span>Register.</span></h3>
+                <p class="paragraph dark">
+                  Register yourself as a Happy Person with basic info about you.
+                  Provide these data with confident, and we will keep your 
+                  privacy at ease.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4">
+            <div class="step__box">
+              <div class="image">
+                <img src="{% static 'watchdog/images/phone-02.png' %}" alt="hub">
+              </div>
+              <div class="content">
+                <h3>SIMPLE TO<span>USE.</span></h3>
+                <p class="paragraph dark">
+                  After registration, head to hub and experience our Happy UX.
+                  <b>Hub</b> is the central place for all the Happy Project offerings.
+                    Be there, Be Square.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-4">
+            <div class="step__box">
+              <div class="image">
+                <img src="{% static 'watchdog/images/phone-03.png' %}" alt="image">
+              </div>
+              <div class="content">
+                <h3>FUN TO<span>Grow.</span></h3>
+                <p class="paragraph dark">
+                  Grow using Happy Project and Grow the Hapy Project from Hub.
+                  Obtain resources or Offer resources and offer your time to review
+                  our offerungs also.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="button__wrapper">
+            {# TODO: navigate to signuo area #}
+            <a href="{% url 'clientauth:index' %}" class="button">
+              <span>Jumpstart <i class="fad fa-long-arrow-right"></i></span>
+            </a>
+            
+            {# TODO: navigate to blogs related to bootcamps #}
+            <a href="{% url 'gallery:index' %}" class="button">
+              <span>LEARN MORE <i class="fad fa-long-arrow-right"></i></span>
+            </a>
+          
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </section>

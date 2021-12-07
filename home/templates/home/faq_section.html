@@ -1,0 +1,52 @@
+{% load static %}
+
+<section class="questions" id="faq">
+    <div class="questions__wrapper">
+      <div class="container">
+        
+        <h2 class="section-heading color-black">
+          Few frequently asked questions Happily😊.
+        </h2>
+        
+        <div class="row align-items-lg-center">
+          <div class="col-lg-6 order-2 order-lg-1">
+            <div id="accordion">
+              
+              {% for faq in faqs %}
+
+              {# Question #}
+              <div class="card" id="card-{{forloop.counter}}">
+                <div class="card-header" id="heading-{{forloop.counter}}">
+                  <h5 class="mb-0 hidden">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-{{forloop.counter}}" aria-expanded="false"
+                      aria-controls="collapse-{{forloop.counter}}">
+                      {{faq.question}}
+                    </button>
+                  </h5>
+                </div>
+
+                {# Answer #}
+                <div id="collapse-{{forloop.counter}}" class="collapse" aria-labelledby="heading-{{forloop.counter}}" data-parent="#accordion">
+                  <div class="card-body">
+                    <p class="paragraph">
+                      {{faq.answer}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              {% endfor %}
+            </div>
+          
+          </div>
+          
+          <div class="col-lg-6 order-1 order-lg-2">
+            <div class="questions-img">
+              <img src="{% static 'watchdog/images/phone-01.png' %}" alt="faq_image">
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </section>

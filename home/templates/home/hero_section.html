@@ -1,0 +1,56 @@
+{% load static %}
+<section class="hero">
+    <div class="hero__wrapper">
+      <div class="container">
+        <div class="row align-items-lg-center">
+          <div class="col-lg-6 order-2 order-lg-1">
+            
+            <h1 class="main-heading color-black">
+              Everything at your ease😊
+            </h1>
+            
+            <p class="paragraph">
+              <span>Happy Project</span>
+               is a non-profit project that aims at needy-students
+              in locale and help them educational wise.
+              <br/> Here, you can request-obtain-assist
+              as a Student or Teacher.
+            </p>
+
+            {# Buttons for the user to navigate to authentication area #}
+            <div class="download-buttons">
+              {# TODO: use pk to dynamically change the route to teacher/student #}
+              
+              <a href="{% url 'hub:index' %}" class="google-play">
+                <i class="fad fa-book-reader"></i>
+                <div class="button-content">
+                  <h6>LOG IN AS <span>A Student </span></h6>
+                </div>
+              </a>
+
+              <a href="{% url 'hub:index' %}" class="apple-store">
+                <i class="fad fa-chalkboard-teacher"></i>
+                <div class="button-content">
+                  <h6>LOG IN AS<span>A Teacher</span></h6>
+                </div>
+              </a>
+            
+            </div>
+          </div>
+          
+          <div class="col-lg-6 order-1 order-lg-2">
+            <div class="questions-img hero-img">
+              {# TODO: Add an peek through of hub as an image #}
+              
+              <img 
+                src="{% static 'watchdog/images/phone-01.png' %}" 
+                alt="hub-peek-through"
+                >
+            
+              </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </section>

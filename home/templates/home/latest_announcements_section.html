@@ -1,0 +1,64 @@
+{% load static %}
+
+<section class="related-blog blog">
+    <div class="related-blog__wrapper">
+      <h2 class="section-heading color-black">
+        Hot Announcements from our Happy Devs
+      </h2>
+      
+      <div class="blog__content">
+        <div class="container">
+          <div class="row">
+            
+            {# Minor Announcement #}
+            <div class="col-lg-4">
+              <a href="#">
+                <div class="blog__single blog__single--1">
+                  <div class="blog__single-image">
+                    <img src="{% static 'home/images/announcements_minor.webp' %}" alt="minor_announcements_image">
+                  </div>
+                  <div class="blog__single-info">
+                    <h3>
+                      New Resources comming in hot!
+                    </h3>
+                    <h4>
+                      Dec 06, 2021
+                    </h4>
+                    <p class="paragraph dark">
+                      As of Dec 25 2021, as a Holiday gift, new resources are releasing. e sure to check the out!
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            
+            <div class="col-lg-8">
+              <a href="#">
+                <div class="blog__single blog__single--2">
+                  <div class="blog__single-image">
+                    <img src="{% static 'home/images/announcements_major.webp' %}" alt="major_announcements_image">
+                  </div>
+                  <div class="blog__single-info">
+                    <h3>
+                      Happy Community: A Eutopia
+                    </h3>
+                    <h4>
+                      Dec 23, 2021
+                    </h4>
+                    <p class="paragraph dark">
+                      On this holiday eve, we are initiating a community for all the Happer Persons- Happy Community - a place for you to 
+                      share your thoughts with other Happy Persons!
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+      <a href="{% url 'gallery:index' %}" class="button">
+        <span>EXPLORE MORE <i class="fad fa-long-arrow-right"></i></span>
+      </a>
+    </div>
+  </section>
