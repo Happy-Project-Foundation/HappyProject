@@ -1,6 +1,6 @@
 {% load static %}
 <script src="{% static 'watchdog/js/jquery-3.6.0.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'watchdog/jspopper.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'watchdog/js/popper.min.js' %}"></script>
 <script src="{% static 'watchdog/js/jquery.slim.min.js' %}"></script>
 <script src="{% static 'watchdog/js/bootstrap.bundle.min.js' %}"></script>
 <script>
@@ -9,5 +9,5 @@ $(window).on('load', function () {
 });
 </script>
 <script src="{% static 'watchdog/js/swiper-bundle.min.js' %}"></script>
-<script src="{% static 'watchdog/js/ytdefer.min.js' %}"></script>
+{% comment %} <script src="{% static 'watchdog/js/ytdefer.min.js' %}"></script> {% endcomment %}
 <script src="{% static 'watchdog/js/script.js' %}"></script>

@@ -1,5 +1,6 @@
-from django.http import HttpResponse
+from django.views.generic import TemplateView
 
 
-def gallery_view(request):
-    return HttpResponse("this is for gallery.")
+class GalleryView(TemplateView):
+    template_name = "gallery/gallery.html"
+
