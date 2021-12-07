@@ -5,9 +5,12 @@
         <div class="container">
             <div class="blog__header">
                 <div class="row">
+                    {% comment %} 
+                    Add support for filters
                     {% include 'gallery/blog_components/category.html' %}
                     
-                    {% include 'gallery/blog_components/date.html' %}
+                    {% include 'gallery/blog_components/date.html' %} 
+                    {% endcomment %}
                    
                     {% include 'gallery/blog_components/search.html' %}
                 
@@ -30,7 +33,7 @@
         </div>
         
         <a href="#" class="button">
-            <span>LOAD MORE <i class="fad fa-long-arrow-right"></i></span>
+            <span>LOAD MORE</span>
         </a>
     
     </div>
