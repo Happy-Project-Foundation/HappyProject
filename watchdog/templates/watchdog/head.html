@@ -6,15 +6,15 @@
       {% if page_title %}
         {{page_title}}
       {% else %}
-        Happy Project | Make 'em Happy:)
+        Happy Project 😊
       {% endif %}
   </title>
 
-  {# TODO: add favicon and manifest file #}
-  {% comment %} <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-  <link rel="manifest" href="assets/favicon/site.html"> {% endcomment %}
+  {# TODO: add manifest file #}
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'watchdog/favicon/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'watchdog/favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'watchdog/favicon/favicon-16x16.png' %}"> 
+  {% comment %} <link rel="manifest" href="assets/favicon/site.html">  {% endcomment %}
 
   {% comment %} stylesheet {% endcomment %}
   <link rel="stylesheet" href="{% static 'watchdog/css/bootstrap.min.css' %}">

@@ -1,0 +1,40 @@
+{% load static %}
+
+<section class="blog">
+    <div class="blog__wrapper">
+        <div class="container">
+            <div class="blog__header">
+                <div class="row">
+                    {% comment %} 
+                    Add support for filters
+                    {% include 'gallery/blog_components/category.html' %}
+                    
+                    {% include 'gallery/blog_components/date.html' %} 
+                    {% endcomment %}
+                   
+                    {% include 'gallery/blog_components/search.html' %}
+                
+                </div>
+            </div>
+        </div>
+        
+        <div class="blog__content">
+            <div class="container">
+                <div class="row">
+                    
+                    {% include 'gallery/blog_components/col-4_blog.html' %}
+                   
+                    {% include 'gallery/blog_components/col-8_blog.html' %}
+                    
+                    {% include 'gallery/blog_components/col-8-left_blog.html' %}
+                    
+                </div>
+            </div>
+        </div>
+        
+        <a href="#" class="button">
+            <span>LOAD MORE</span>
+        </a>
+    
+    </div>
+</section>
