@@ -1,0 +1,65 @@
+{% load static %}
+
+<div class="sidebar">
+    
+    {# about widget #}
+    <div class="widget rounded">
+        <div class="widget-about data-bg-image text-center" data-bg-image="{% static 'hub/images/map-bg.png' %}">
+            <img src="{% static 'watchdog/images/happy-logo-banner.png' %}" alt="logo" class="mb-4" />
+            
+            {# chage the description #}
+            <p class="mb-4">Hello, We’re content writer who is fascinated by content fashion, celebrity and lifestyle. 
+                We helps clients bring the right content to the right people.</p>
+        </div>
+    </div>
+
+    {# top sponsors widget #}
+    <div class="widget rounded">
+        <div class="widget-header text-center">
+            <h3 class="widget-title">Top Sponsors</h3>
+            <img src="{% static 'hub/images/wave.svg' %}" class="wave" alt="wave" />
+        </div>
+        <div class="widget-content">
+            
+            {# a sponsor element #}
+            <div class="post post-list-sm circle">
+                <div class="thumb circle">
+                    <span class="number">1</span>
+                    <a href="blog-single.html">
+                        <div class="inner">
+                            <img src="{% static 'hub/images/posts/tabs-1.jpg' %}" alt="post-title" />
+                        </div>
+                    </a>
+                </div>
+                <div class="details clearfix">
+                    <h6 class="post-title my-0"><a href="blog-single.html">3 Easy Ways To Make Your iPhone Faster</a></h6>
+                    <ul class="meta list-inline mt-1 mb-0">
+                        <li class="list-inline-item">Platinum</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>		
+    </div>
+
+    {# request a scholarship #}
+    <div class="widget rounded">
+        <div class="widget-header text-center">
+            <h3 class="widget-title">Happy Scholarship</h3>
+            <img src="{% static 'hub/images/wave.svg' %}" class="wave" alt="wave" />
+        </div>
+        <div class="widget-content">
+            <span class="newsletter-headline text-center mb-3">Request a Happy Scholarship</span>
+            <form>
+                <div class="mb-2">
+                    <input class="form-control w-100 text-center" placeholder="Email address…" type="email">
+                </div>
+                <button class="btn btn-default btn-full" type="submit">Send request😊</button>
+            </form>
+            
+            {# TODO: updae the link #}
+            <span class="newsletter-privacy text-center mt-3">By signing up, you agree to our <a href="#">Privacy Policy &amp; Terms</a></span>
+        </div>		
+    </div>
+    
+</div>
