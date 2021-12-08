@@ -9,5 +9,6 @@ class HubView(TemplateView):
         
         # NOTE: Test var.
         context["user"] = "student"
+        context["page_title"] = "Birnadin Erick's hub | Happy Project 😊"
         return context
     
