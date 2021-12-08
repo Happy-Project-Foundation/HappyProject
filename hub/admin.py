@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from hub.models import Resource
+
+admin.site.register(Resource)

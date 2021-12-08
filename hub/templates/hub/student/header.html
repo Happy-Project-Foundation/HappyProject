@@ -48,32 +48,28 @@
 					
 					<ul class="navbar-nav">
 						<li class="nav-item dropdown active">
-							<a class="nav-link dropdown-toggle" href="index.html">Exam Papers</a>
+							<a class="nav-link dropdown-toggle" href="index.html">Type of Resource</a>
 							<ul class="dropdown-menu">
-								{# TODO: dynamically populate the categories #}
-								<li><a class="dropdown-item" href="">Adv Lvl Past Papers(DoE)</a></li>
-								<li><a class="dropdown-item" href="">Mora Papers</a></li>
-								<li><a class="dropdown-item" href="">Pilot Papers</a></li>
-								<li><a class="dropdown-item" href="">Happy Community Issues</a></li>
-								<li><a class="dropdown-item" href="">Unspecified</a></li>
+								
+								{% for type in types %}
+									<li><a class="dropdown-item" href="?">{{type}}</a></li>
+								{% endfor %}
+								
 							</ul>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="">Happy Announcements</a>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#">Subjects</a>
+							<ul class="dropdown-menu">
+								{% for subject in subjects %}
+									<li><a class="dropdown-item" href="?">{{subject}}</a></li>
+								{% endfor %}
+							</ul>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="">Articles</a>
 						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#">Tutorials</a>
-							<ul class="dropdown-menu">
-								{# TODO: dynamically populate according to user-preference #}
-								<li><a class="dropdown-item" href="">ICT</a></li>
-								<li><a class="dropdown-item" href="">Physics</a></li>
-								<li><a class="dropdown-item" href="">Gen. English</a></li>
-								<li><a class="dropdown-item" href="">Pure Mathematics</a></li>
-								<li><a class="dropdown-item" href="">Abstract Mathematics</a></li>
-							</ul>
+						<li class="nav-item">
+							<a class="nav-link" href="">Happy Announcements</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="">Sponsor Happy Project</a>

@@ -6,41 +6,63 @@
         <div class="row gy-4">
             <div class="col-lg-8">
                 <div class="row gy-4">
+                    {% for item in page_obj %}
                     <div class="col-sm-6">
 
-                        {# a post element #}
+                        {# a resource element #}
                         <div class="post post-grid rounded bordered">
                             <div class="thumb top-rounded">
                                
-                                <a href="" class="category-badge position-absolute">Lifestyle</a>
+                                <a href="" class="category-badge position-absolute">{{item.subject | upper}}</a>
                                 
-                                {# NOTE and TODO: replace `$` with link to the doc #}
-                                <a href="$">
+                                
+                                <a href="{{item.link}}">
                                     <div class="inner">
-                                        <img src="{% static 'hub/images/posts/post-md-1.jpg' %}" alt="post-title" />
+                                        <img src="{% static 'hub/images/posts/post-md-10.jpg' %}" alt="post-title" />
                                     </div>
                                 </a>
                             
                             </div>
                             <div class="details"> 
                                 
-                                <h5 class="post-title mb-3 mt-3"><a href="$">How To Become </a></h5>
-                                <p class="excerpt mb-0">I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence.</p>
+                                <h5 class="post-title mb-3 mt-3"><a href="{{item.link}}"> {{item.title | upper}} </a></h5>
+                                <p class="excerpt mb-0">
+                                    {{item.desc | lower | truncatewords:50}}
+                                </p>
                             
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
 
                 </div>
 
                 {# pagination #}
                 <nav>
                     <ul class="pagination justify-content-center">
-                        <li class="page-item active" aria-current="page">
-                            <span class="page-link">1</span>
+
+                        {% if page_obj.has_previous%}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{page_obj.previous_page_number}}">
+                                    {{page_obj.number | add:"-1"}}
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        <li class="page-item active">
+                            <span class="page-link" aria-current="page">
+                                {{page_obj.number}}
+                            </span>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        
+                        {% if page_obj.has_next%}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{page_obj.next_page_number}}">
+                                    {{page_obj.number | add:"1"}}
+                                </a>
+                            </li>
+                        {% endif %}
+                        
                     </ul>
                 </nav>
 
