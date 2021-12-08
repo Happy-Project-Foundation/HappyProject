@@ -1,0 +1,8 @@
+{% load static %}
+
+{# TODO: selection should be changed to check whether user is authenticated or not #}
+{% if user == "student" %}
+    {% include 'hub/student_hub.html' %}
+{% else %}
+    hello i am teacher
+{% endif %}
