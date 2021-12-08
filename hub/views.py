@@ -7,6 +7,7 @@ class HubView(ListView):
     template_name = "hub/hub.html"
     paginate_by = 15
     model = Resource
+    ordering = ["title"]
 
 
     def get_context_data(self, **kwargs):
