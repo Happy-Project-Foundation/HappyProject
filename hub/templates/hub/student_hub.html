@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en-US">
+
+{% include 'hub/student/head.html' %}
+
+<body>
+
+    {# loading progress indicator #}
+    <div id="preloader">
+        <div class="book">
+            <div class="inner">
+                <div class="left"></div>
+                <div class="middle"></div>
+                <div class="right"></div>
+            </div>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    {# bootstrap util #}
+    <div class="site-wrapper">
+
+        {# bootstrap util #}
+        <div class="main-overlay"></div>
+
+        {# header section #}
+        {% include 'hub/student/header.html' %}
+
+        {# trending-blogs(Happy Community) section #}
+        {% include 'hub/student/trending_blogs.html' %}
+
+        {# items(past-papers, papers, tutorials, articles etc.) section #}
+        {% include 'hub/student/items.html' %}
+
+        {# footer section #}
+        {% include 'hub/student/footer.html' %}
+
+    </div>
+
+    {# search form #}
+    {% include 'hub/student/search.html' %}
+
+    {# hamburger-menu #}
+    {% include 'hub/student/nav_canvas.html' %}
+
+    {# js scripts injection #}
+    {% include 'hub/student/scripts.html' %}
+
+</body>
+</html>

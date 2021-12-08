@@ -1,0 +1,29 @@
+{% load static %}
+<div class="canvas-menu d-flex align-items-end flex-column">
+
+	<button type="button" class="btn-close" aria-label="Close"></button>
+
+
+	<div class="logo">
+		<img src="{% static 'watchdog/images/happy-logo-banner.png' %}" alt="Happy Project Foundation" />
+	</div>
+
+
+	<nav>
+		<ul class="vertical-menu">
+            <li><a href="{% url 'home:index' %}">Home</a></li>
+			
+            <li class="active">
+                <li><a href="{% url 'hub:index' %}">Hub</a></li>
+			</li>
+            
+            <li><a href="{% url 'gallery:index' %}">Gallery</a></li>
+		</ul>
+	</nav>
+
+    {# TODO: populate spcial links #}
+	<ul class="social-icons list-unstyled list-inline mb-0 mt-auto w-100">
+		<li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+		<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+	</ul>
+</div>
