@@ -39,3 +39,6 @@ env/
 
 # mkdocs documentation
 /site
+
+# auxilary
+designfiles/
