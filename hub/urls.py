@@ -1,8 +1,8 @@
 from django.urls import path
 
-from hub.views import hub_view
+from .views import HubView
 
 app_name = "hub"
 urlpatterns = [
-    path('', hub_view, name="index")
+    path('', HubView.as_view(), name="index")
 ]
