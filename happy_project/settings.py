@@ -1,16 +1,19 @@
+import os
 from pathlib import Path
+
+import django_heroku as dh
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # TODO: change in production
-SECRET_KEY = 'happyProj3ctbyShantho$h&B1rnadin3rick'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["happyprojectapp.herokuapp.com"]
 
 
 INSTALLED_APPS = [
@@ -90,5 +93,13 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
+
+# Static files config
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Django-Heroku customizations
+dh.settings(locals(), test_runner=False)

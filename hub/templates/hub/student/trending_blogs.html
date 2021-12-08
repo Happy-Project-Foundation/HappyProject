@@ -1,0 +1,27 @@
+{% load static %}
+
+<section class="hero-carousel">
+        <div class="row post-carousel-featured post-carousel">
+            <!-- post -->
+            <div class="post featured-post-md">
+                <div class="details clearfix">
+
+                    <a href="{% url 'blog:index' %}" class="category-badge">Lifestyle</a>
+                    
+                    <h4 class="post-title"><a href="{% url 'blog:index' %}">Important Thing You Need To Know About Swim</a></h4>
+                    
+                    <ul class="meta list-inline mb-0">
+                        <li class="list-inline-item">Birnadin Erick</li>
+                        <li class="list-inline-item">December 08, 2021</li>
+                    </ul>
+                </div>
+                
+                <a href="{% url 'blog:index' %}">
+                    <div class="thumb rounded">
+                        <div class="inner data-bg-image" data-bg-image="{% static 'hub/images/posts/featured-md-4.jpg' %}"></div>
+                    </div>
+                </a>
+            
+            </div>
+        </div>
+    </section>
