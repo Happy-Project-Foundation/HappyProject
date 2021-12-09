@@ -1,5 +1,9 @@
-from django.http import HttpResponse
+from django.views.generic.detail import DetailView
+
+from .models import Blog
 
 
-def blog_view(request):
-    return HttpResponse("this is a blog post if any.")
+class BlogView(DetailView):
+    template_name = "blog/blog.html"
+    model = Blog
+    context_object_name = "blog"
