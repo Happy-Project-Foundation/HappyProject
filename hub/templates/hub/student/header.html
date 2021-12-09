@@ -48,11 +48,11 @@
 					
 					<ul class="navbar-nav">
 						<li class="nav-item dropdown active">
-							<a class="nav-link dropdown-toggle" href="index.html">Type of Resource</a>
+							<a class="nav-link dropdown-toggle" href="#">Type of Resource</a>
 							<ul class="dropdown-menu">
 								
 								{% for type in types %}
-									<li><a class="dropdown-item" href="?">{{type}}</a></li>
+									<li><a class="dropdown-item" href="?type={{type}}">{{type}}</a></li>
 								{% endfor %}
 								
 							</ul>
@@ -61,7 +61,7 @@
 							<a class="nav-link dropdown-toggle" href="#">Subjects</a>
 							<ul class="dropdown-menu">
 								{% for subject in subjects %}
-									<li><a class="dropdown-item" href="?">{{subject}}</a></li>
+									<li><a class="dropdown-item" href="?subject={{subject}}">{{subject}}</a></li>
 								{% endfor %}
 							</ul>
 						</li>
