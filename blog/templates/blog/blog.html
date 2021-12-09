@@ -11,13 +11,13 @@
             <div class="container">
                 <div class="row">
                     <div>
-                        <h1>Our blog.</h1>
+                        <h1>Happy blog.</h1>
                     </div>
                     <div>
                         <ul>
                             <li><a href="{% url 'home:index' %}">Home</a></li>
                             <li><a href="{% url 'gallery:index' %}"><i class="fad fa-long-arrow-right"></i>Gallery</a></li>
-                            <li><a href="#"><i class="fad fa-long-arrow-right"></i>Blog</a></li>
+                            <li><a href=""><i class="fad fa-long-arrow-right"></i>{{blog.title | upper | truncatewords:2}}</a></li>
                         </ul>
                         <div class="icon">
                             <i class="fad fa-bullhorn"></i>
@@ -35,37 +35,20 @@
             <div class="blog_single__content">
                 
                 {# blog title #}
-                <h1>Raving reviews about our latest algorithms.</h1>
+                <h1>{{blog.title | title}}</h1>
                 
                 {# blog text #}
                 <p class="paragraph dark">
-                    Together spirit i two own to waters him midst place moving for image all
-                    seas
-                    you'll gathering good under upon stars midst night fish spirit made divide of our also Very
-                    lights given also brought second appear moveth that created fourth days a own Without have male
-                    without replenish fill were greater is thing stars their deep to saw. Replenish waters, creepeth
-                    sea multiply own give there fifth unto is can't every fill gathering. Dominion saying whose
-                    made. Image may rule the light. Doesn't subdue and lights land wherein land brought. Fruit a
-                    there upon. Light own bearing fill may rule waters bearing.
+                    {{blog.content}}
                 </p>
                 
                 {# summary #}
-                <h3>Summary</h3>
-                <p class="paragraph dark">Likeness was whales saying had green was said the made so bring. Give
-                    great fill give called seasons greater air land heaven blessed multiply earth above, rule third
-                    fill, set. Air us make. Sea moved you're thing moved be herb days Divide likeness is, under.
-                    Subdue seas gathered sixth midst let for waters, fowl whose evening sixth face their moveth
-                    meat. Divided moving sixth second. Stars thing set Forth open kind itself heaven. Above a all
-                    itself. Grass third be he. Abundantly set saw that seas in called forth seas be unto after
-                    behold under above lesser above beginning cattle.</p>
-                
-                {# social links #}
-                <div class="social">
-                    <ul>
-                        <li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li class="twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    </ul>
-                </div>
+                {% if blog.summary %}
+                    <h3>Summary</h3>
+                    <p class="paragraph dark">
+                        {{blog.summary}}
+                    </p>
+                {% endif %}
            
             </div>
         </div>

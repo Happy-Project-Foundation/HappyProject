@@ -4,5 +4,5 @@ from .views import BlogView
 
 app_name = "blog"
 urlpatterns = [
-    path('', BlogView.as_view(), name="index"),
+    path('<uuid:pk>', BlogView.as_view(), name="index"),
 ]

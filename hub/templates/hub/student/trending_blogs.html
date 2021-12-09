@@ -3,25 +3,29 @@
 <section class="hero-carousel">
         <div class="row post-carousel-featured post-carousel">
             <!-- post -->
-            <div class="post featured-post-md">
-                <div class="details clearfix">
+            {% for blog in blogs %}
+                <div class="post featured-post-md">
+                    <div class="details clearfix">
 
-                    <a href="{% url 'blog:index' %}" class="category-badge">Lifestyle</a>
-                    
-                    <h4 class="post-title"><a href="{% url 'blog:index' %}">Important Thing You Need To Know About Swim</a></h4>
-                    
-                    <ul class="meta list-inline mb-0">
-                        <li class="list-inline-item">Birnadin Erick</li>
-                        <li class="list-inline-item">December 08, 2021</li>
-                    </ul>
-                </div>
-                
-                <a href="{% url 'blog:index' %}">
-                    <div class="thumb rounded">
-                        <div class="inner data-bg-image" data-bg-image="{% static 'hub/images/posts/featured-md-4.jpg' %}"></div>
+                        <a href="{% url 'blog:index' blog.id %}" class="category-badge">HOT BLOG</a>
+                        
+                        <h4 class="post-title"><a href="{% url 'home:index' %}">{{blog.title | upper | truncatewords:5}}</a></h4>
+                        
+                        <ul class="meta list-inline mb-0">
+                            <li class="list-inline-item">Happy dev</li>
+                            {% comment %} <li class="list-inline-item"> {% date 'M-d-Y' %} </li> {% endcomment %}
+                        </ul>
                     </div>
-                </a>
-            
-            </div>
+                    
+                    <a href="{% url 'blog:index' blog.id %}">
+                        <div class="thumb rounded">
+                            {% cycle '1.webp' '2.webp' '/3.webp' '4.webp' '5.webp' as img silent%}
+                                        {% comment %} <img src="{% static 'gallery/images/'|add:img %}" alt="blog_image"> {% endcomment %}
+                            <div class="inner data-bg-image" data-bg-image="{% static 'gallery/images/'|add:img %}"></div>
+                        </div>
+                    </a>
+                
+                </div>
+            {% endfor %}
         </div>
     </section>

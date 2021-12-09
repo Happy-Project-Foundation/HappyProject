@@ -1,7 +1,8 @@
 from django.http.response import HttpResponseServerError
 from django.views.generic import ListView
 
-from hub.models import Resource
+from .models import Resource
+from blog.models import Blog
 
 
 class HubView(ListView):
@@ -43,6 +44,9 @@ class HubView(ListView):
         
         context["types"] = [type[1] for type in Resource._types]
         context["subjects"] = [subject[1] for subject in Resource._subjects]
+
+        # trending blogs construction
+        context["blogs"] = Blog.objects.all().order_by("title")[:8]
 
         return context
     

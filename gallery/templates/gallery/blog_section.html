@@ -17,10 +17,12 @@
 
                     {% for obj in page_obj %}
                         <div class="col-lg-{% cycle '4' '8' '8 left' %}">
-                            <a href="">
+                            <a href="{% url 'blog:index' obj.id %}">
                                 <div class="blog__single blog__single--{% cycle '1' '2' '3' %}">
                                     <div class="blog__single-image">
-                                        <img src="{% static 'watchdog/images/blog-img-1.png' %}" alt="blog_image">
+                                        
+                                        {% cycle '1.webp' '2.webp' '/3.webp' '4.webp' '5.webp' as img silent%}
+                                        <img src="{% static 'gallery/images/'|add:img %}" alt="blog_image">
                                     </div>
                                     <div class="blog__single-info">
                                         <h3>{{obj.title}}</h3>
@@ -44,8 +46,8 @@
         {% if page_obj.has_previous %}
             <a href="?page={{ page_obj.previous_page_number }}" class="button">
                 <span>
+                    <i class="fad fa-long-arrow-left"></i>
                     PREVIOUS
-                    <i class="fad fa-long-arrow-right"></i>
                 </span>
             </a>
         {% endif %}
