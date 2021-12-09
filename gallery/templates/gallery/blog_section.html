@@ -5,13 +5,6 @@
         <div class="container">
             <div class="blog__header">
                 <div class="row">
-                    {% comment %} 
-                    Add support for filters
-                    {% include 'gallery/blog_components/category.html' %}
-                    
-                    {% include 'gallery/blog_components/date.html' %} 
-                    {% endcomment %}
-                   
                     {% include 'gallery/blog_components/search.html' %}
                 
                 </div>
@@ -21,20 +14,52 @@
         <div class="blog__content">
             <div class="container">
                 <div class="row">
-                    
-                    {% include 'gallery/blog_components/col-4_blog.html' %}
-                   
-                    {% include 'gallery/blog_components/col-8_blog.html' %}
-                    
-                    {% include 'gallery/blog_components/col-8-left_blog.html' %}
+
+                    {% for obj in page_obj %}
+                        <div class="col-lg-{% cycle '4' '8' '8 left' %}">
+                            <a href="{% url 'blog:index' obj.id %}">
+                                <div class="blog__single blog__single--{% cycle '1' '2' '3' %}">
+                                    <div class="blog__single-image">
+                                        
+                                        {% cycle '1.webp' '2.webp' '/3.webp' '4.webp' '5.webp' as img silent%}
+                                        <img src="{% static 'gallery/images/'|add:img %}" alt="blog_image">
+                                    </div>
+                                    <div class="blog__single-info">
+                                        <h3>{{obj.title}}</h3>
+                                        
+                                        <p class="paragraph dark">
+                                            {{obj.content | truncatewords:10}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+            
+                    {% endfor %}
                     
                 </div>
+                
+               
             </div>
         </div>
+
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}" class="button">
+                <span>
+                    <i class="fad fa-long-arrow-left"></i>
+                    PREVIOUS
+                </span>
+            </a>
+        {% endif %}
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="button">
+                <span>
+                    NEXT
+                    <i class="fad fa-long-arrow-right"></i>
+                </span>
+            </a>
+        {% endif %}
         
-        <a href="#" class="button">
-            <span>LOAD MORE</span>
-        </a>
-    
     </div>
+    
 </section>
