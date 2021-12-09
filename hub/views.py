@@ -15,7 +15,8 @@ class HubView(ListView):
         
         # NOTE: Test var.
         context["user"] = "student"
-        context["page_title"] = "Birnadin Erick's hub | Happy Project 😊"
+        context["page_title"] = "Happy Hub | Happy Project 😊"
+        
         context["types"] = [type[1] for type in Resource._types]
         context["subjects"] = [subject[1] for subject in Resource._subjects]
 
