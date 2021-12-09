@@ -1,5 +1,6 @@
-from django.http import HttpResponse
+from django.views.generic import TemplateView
 
 
-def blog_view(request):
-    return HttpResponse("this is a blog post if any.")
+class BlogView(TemplateView):
+    template_name = "blog/blog.html"
+
