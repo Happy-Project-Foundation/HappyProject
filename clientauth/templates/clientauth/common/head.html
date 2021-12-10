@@ -1,0 +1,24 @@
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        {% if page_title %}
+            {{page_title}}
+        {% else %}
+            Happy Project 😊
+        {% endif %}
+    </title>
+
+    {# TODO: add manifest file #}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'watchdog/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'watchdog/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'watchdog/favicon/favicon-16x16.png' %}"> 
+    {% comment %} <link rel="manifest" href="assets/favicon/site.html">  {% endcomment %}
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'watchdog/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'clientauth/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'clientauth/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'clientauth/css/theme.css' %}">
+</head>
