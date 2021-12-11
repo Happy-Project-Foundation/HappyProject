@@ -1,6 +1,3 @@
-import uuid
-
-from django.apps import apps
 from django.contrib import auth
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
@@ -11,42 +8,59 @@ from django.contrib.auth.hashers import make_password
 from django.utils.translation import gettext_lazy as _
 
 
+# ROLES -----------------------------------------------
+STUDENT, TEACHER, HAPPYDEV, DONOR, GAZER, ADMIN = 1, 2, 3, 5, 4, 0
+# -----------------------------------------------------
+
+
 class HappyPersonManager(BaseUserManager):
     use_in_migrations = True
 
-    def _create_user(self, username, email, first_name, last_name, password, **extra_fields):
+    def _create_user(self, email, first_name, last_name, password, **extra_fields):
         """
         Create and save a user with the given username, email, and password.
         """
-        if not username:
-            raise ValueError('The given username must be set')
+        if not email or not first_name or not last_name:
+            raise ValueError('Please make sure all the required attributes were passed on')
+        
         email = self.normalize_email(email)
-        # Lookup the real model class from the global app registry so this
-        # manager method can be used in migrations. This is fine because
-        # managers are by definition working on the real model.
-        GlobalUserModel = apps.get_model(
-            self.model._meta.app_label, self.model._meta.object_name)
-        username = GlobalUserModel.normalize_username(username)
-        user = self.model(username=username, email=email, **extra_fields)
+        
+        user = self.model(
+            email=email, 
+            first_name=first_name, 
+            last_name=last_name, 
+            **extra_fields
+        )
+        
         user.password = make_password(password)
         user.save(using=self._db)
         return user
 
-    def create_user(self, username, email, first_name, last_name, password=None, **extra_fields):
+    def create_user(self, email, first_name, last_name, password=None, **extra_fields):
         extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
-        return self._create_user(username, email, first_name, last_name, password, **extra_fields)
+        return self._create_user(email, first_name, last_name, password, **extra_fields)
 
-    def create_superuser(self, username, email=None, password=None, **extra_fields):
+    def create_superuser(
+            self, 
+            email, 
+            first_name,
+            last_name,
+            password=None,
+            **extra_fields
+        ):
+
+
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('role', 0)
 
         if extra_fields.get('is_staff') is not True:
             raise ValueError('Superuser must have is_staff=True.')
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True.')
 
-        return self._create_user(username, email, password, **extra_fields)
+        return self._create_user(email, first_name, last_name, password, **extra_fields)
 
     def with_perm(self, perm, is_active=True, include_superusers=True, backend=None, obj=None):
         if backend is None:
@@ -77,16 +91,11 @@ class HappyPersonManager(BaseUserManager):
 
 class HappyPerson(AbstractBaseUser, PermissionsMixin):
     
-    happyid = models.UUIDField(
-        _("Happy ID"), 
-        primary_key=True,
-        editable=False,
-        default=uuid.uuid4,
-        auto_created=True
-    )
+    email = models.EmailField(_('email address'), blank=False, unique=True)
     first_name = models.CharField(_('first name'), max_length=200, blank=False)
     last_name = models.CharField(_('last name'), max_length=200, blank=False)
-    email = models.EmailField(_('email address'), blank=False, unique=True)
+    role = models.IntegerField(_('role'), blank=False, default=4,
+        help_text=_('Role of the HappyPerson'))
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,
@@ -106,8 +115,8 @@ class HappyPerson(AbstractBaseUser, PermissionsMixin):
     objects = HappyPersonManager()
 
     EMAIL_FIELD = 'email'
-    USERNAME_FIELD = 'happyid'
-    REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['first_name', 'last_name']
 
     class Meta:
         verbose_name = _('user')
