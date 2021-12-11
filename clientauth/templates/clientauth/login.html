@@ -1,6 +1,10 @@
 {% extends 'clientauth/common/base.html' %}
 {% load static %}
 
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'clientauth/css/login.css' %}">
+{% endblock custom_css %}
+
 
 {% block children %}
     <div class="form-body without-side">
@@ -17,12 +21,14 @@
                     <div class="form-items">
                         <h3>Login to continue</h3>
                         <p>Become Happy 😊</p>
-                        <form>
-                            <input class="form-control" type="text" name="username" placeholder="E-mail Address" required>
-                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                        <form method="post", action="{% url 'clientauth:login' %}">
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            
                             <div class="form-button">
-                                <button id="submit" type="submit" class="ibtn">Login</button> <a href="{% url 'password_change' %}">Forget password?</a>
+                                <button id="submit" type="submit" class="ibtn">Login</button> <a href="{% url 'home:index' %}">Forget password?</a>
                             </div>
+                            <input type="hidden" name="next" value="{{ next }}">
                         </form>
                         <div class="other-links">
                             <div class="text">Or login with</div>

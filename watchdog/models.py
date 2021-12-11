@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 # ROLES -----------------------------------------------
-STUDENT, TEACHER, HAPPYDEV, DONOR, GAZER, ADMIN = 1, 2, 3, 5, 4, 0
+STUDENT, TEACHER, DEV, DONOR, GAZER, ADMIN = 1, 2, 3, 5, 4, 0
 # -----------------------------------------------------
 
 
