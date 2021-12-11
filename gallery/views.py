@@ -1,6 +1,11 @@
-from django.views.generic import TemplateView
+from django.views.generic import ListView
+
+from blog.models import Blog
 
 
-class GalleryView(TemplateView):
+class GalleryView(ListView):
     template_name = "gallery/gallery.html"
+    model = Blog
+    paginate_by = 10
+    ordering = ["title"]
 
