@@ -1,7 +1,8 @@
+from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponseRedirect, HttpResponseServerError
 from django.shortcuts import render
-from django.urls import reverse
+from django.urls import reverse_lazy
 
 from watchdog.models import HappyPerson
 
@@ -10,10 +11,29 @@ class ClientLoginView(LoginView):
     template_name = "clientauth/login.html"
 
 
+class PasswordResetSuccessView(auth_views.PasswordResetCompleteView):
+    template_name = "clientauth/password_reset_complete.html"
+
+
+class PasswordResetActionView(auth_views.PasswordResetConfirmView):
+    template_name = "clientauth/password_reset_confirm.html"
+    success_url = reverse_lazy("clientauth:password_reset_success")
+
+
+class PasswordResetRequestedView(auth_views.PasswordResetDoneView):
+    template_name = "clientauth/password_reset_done.html"
+
+
+class ForgotPasswordView(auth_views.PasswordResetView):
+    email_template_name = "clientauth/password_reset_email.html"
+    template_name = "clientauth/password_reset_form.html"
+    success_url = reverse_lazy("clientauth:password_reset_requested")
+
+
 def join(req):
     if req.user.is_authenticated:
         return HttpResponseRedirect(
-            reverse('clientauth:login')
+            reverse_lazy('clientauth:login')
         )
 
     if req.method == "POST":
@@ -40,7 +60,7 @@ def join(req):
             return HttpResponseServerError()
         else:
             return HttpResponseRedirect(
-                reverse('clientauth:login')
+                reverse_lazy('clientauth:login')
             )
 
     else:
