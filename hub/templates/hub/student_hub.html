@@ -66,5 +66,11 @@
     {# js scripts injection #}
     {% include 'hub/student/scripts.html' %}
 
+    <script type="text/javascript">
+        $("button.logout").on( 'click', function() {
+          window.location.assign("{% url 'clientauth:logout' %}")
+        });
+    </script>
+
 </body>
 </html>
