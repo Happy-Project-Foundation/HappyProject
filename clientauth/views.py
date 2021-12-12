@@ -8,13 +8,12 @@ from watchdog.models import HappyPerson
 
 class ClientLoginView(LoginView):
     template_name = "clientauth/login.html"
-    
+
 
 def join(req):
-
     if req.user.is_authenticated:
         return HttpResponseRedirect(
-            reverse('hub:index')
+            reverse('clientauth:login')
         )
 
     if req.method == "POST":
@@ -25,7 +24,6 @@ def join(req):
         role = int(req.POST['rad'][0])
         passwd = req.POST['passwd']
 
-
         try:
             new_person = HappyPerson.objects.create_user(
                 email=email,
@@ -35,6 +33,7 @@ def join(req):
             )
             new_person.role = role
             if role != 1:
+                new_person.is_staff = True
                 new_person.is_active = False
             new_person.save()
         except:
