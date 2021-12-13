@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponseServerError
 from django.shortcuts import render
 from django.urls import reverse_lazy
 
+
 from watchdog.models import HappyPerson
 
 

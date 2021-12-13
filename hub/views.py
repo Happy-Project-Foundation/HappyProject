@@ -1,7 +1,8 @@
+
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http.response import HttpResponseRedirect, Http404, HttpResponseServerError
+from django.http.response import HttpResponseRedirect, HttpResponseServerError
 from django.urls import reverse
 
 from blog.models import Blog
@@ -16,7 +17,6 @@ from .models import Resource
 def hub_index(req):
     # almost unreachable
     return HttpResponseRedirect(reverse('api:stray'))
-
 
 # noinspection PyShadowingBuiltins,PyProtectedMember
 # @login_required(login_url='clientauth:login')
@@ -34,11 +34,14 @@ def hub_index(req):
 #         request=req, template_name="hub/student_hub.html"
 #     )
 
-class StudentHubView(LoginRequiredMixin, ListView):
-    template_name = "hub/student_hub.html"
+
+class StudentHubView(LoginRequiredMixin ,ListView):
+    template_name = "hub/studet_hub.html"
+
     paginate_by = 15
     model = Resource
     ordering = ["title"]
+
 
     def get_queryset(self):
         try:
@@ -73,5 +76,7 @@ class StudentHubView(LoginRequiredMixin, ListView):
 
         # trending blogs construction
         context["blogs"] = Blog.objects.all().order_by("title")[:8]
+
+
 
         return context

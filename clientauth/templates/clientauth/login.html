@@ -26,8 +26,10 @@
                             {{form.as_p}}
                             
                             <div class="form-button">
+
                                 <button id="submit" type="submit" class="ibtn">Login</button>
                                 <a href="{% url 'clientauth:forgot_password' %}">Forget password?</a>
+
                             </div>
                             <input type="hidden" name="next" value="{{ next }}">
                         </form>
