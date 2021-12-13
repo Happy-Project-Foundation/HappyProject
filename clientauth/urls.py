@@ -4,6 +4,7 @@ from clientauth.views import (
     ClientLoginView, join, PasswordResetActionView,
     PasswordResetSuccessView, PasswordResetRequestedView,
     ForgotPasswordView
+)
 
 from django.contrib.auth.views import LogoutView
 
