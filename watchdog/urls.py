@@ -1,6 +1,9 @@
 from django.urls import path
 
-from .views import api_text_view
+from .views import SoonView, stray_user
+
+app_name = "api"
 urlpatterns = [
-    path('', api_text_view)
+    path('soon', SoonView.as_view(), name='soon'),
+    path('stray', stray_user, name='stray')
 ]

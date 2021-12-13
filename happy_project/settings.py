@@ -1,20 +1,16 @@
-import os
 from pathlib import Path
-
-import django_heroku as dh
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # TODO: change in production
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = 'happyProj3ctbyShantho$h&B1rnadin3rick'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["happyprojectapp.herokuapp.com"]
-
 
 INSTALLED_APPS = [
     # my apps
@@ -24,7 +20,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'hub.apps.HubConfig',
     'watchdog.apps.WatchdogConfig',
-    
+
     # third-party apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -64,14 +60,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'happy_project.wsgi.application'
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -88,18 +82,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
-
-# Static files config
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Django-Heroku customizations
-dh.settings(locals(), test_runner=False)
+AUTH_USER_MODEL = 'watchdog.HappyPerson'
+LOGIN_URL = 'clientauth:login'
+LOGIN_REDIRECT_URL = 'api:stray'
+LOGOUT_REDIRECT_URL = 'home:index'

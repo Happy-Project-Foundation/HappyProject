@@ -1,0 +1,50 @@
+{% extends 'clientauth/common/base.html' %}
+{% load static %}
+
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'clientauth/css/login.css' %}">
+{% endblock custom_css %}
+
+
+{% block children %}
+    <div class="form-body without-side">
+        
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+                    <img src="{% static 'clientauth/images/graphic3.svg '%}" alt="background_graphics">
+                </div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Login to continue</h3>
+                        <p>Become Happy 😊</p>
+                        <form method="post", action="{% url 'clientauth:login' %}">
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            
+                            <div class="form-button">
+                                <button id="submit" type="submit" class="ibtn">Login</button>
+                                <a href="{% url 'clientauth:forgot_password' %}">Forget password?</a>
+                            </div>
+                            <input type="hidden" name="next" value="{{ next }}">
+                        </form>
+                        <div class="other-links">
+                            <div class="text">Or login with</div>
+                                <a href="#">
+                                    <i class="fab fa-google"></i>
+                                    Google
+                                </a>
+                        </div>
+                        <div class="page-links">
+                            <a href="{% url 'clientauth:join' %}">Register new account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock children %}

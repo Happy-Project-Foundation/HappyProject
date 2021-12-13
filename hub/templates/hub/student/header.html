@@ -17,7 +17,7 @@
 					
 					{# TODO: display username #}
 					{# TODO: change url to navigate to the profile edit #}
-					<a href="personal.html" class="d-block text-logo">BIRNADIN ERICK<span class="dot">.</span></a>
+					<a href="personal.html" class="d-block text-logo">{{user.get_full_name | upper | truncatewords:3}}<span class="dot">.</span></a>
 					{# TODO: display user's bio #}
 					<span class="slogan d-block">Fide et Labore!</span>
 				</div>
@@ -31,7 +31,12 @@
 							<i class="icon-magnifier"></i>
 						</button>
 
-						{# hamburger menu #}
+                        {# search button #}
+						<button class="logout icon-button ms-2 float-end float-md-none">
+                            <i class="icon-logout"></i>
+						</button>
+
+                        {# hamburger menu #}
 						<button class="burger-menu icon-button ms-2 float-end float-md-none">
 							<span class="burger-icon"></span>
 						</button>

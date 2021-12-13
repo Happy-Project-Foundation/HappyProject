@@ -19,8 +19,8 @@
                 <div class="social">
                   <ul>
                     {# TODO: populate the links #}
-                    <li class="facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li class="facebook"><a href="{% url 'api:soon' %}"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="twitter"><a href="{% url 'api:soon' %}"><i class="fab fa-twitter"></i></a></li>
                   </ul>
                 </div>
               
@@ -33,37 +33,37 @@
               <div class="footer__list">
                 <ul>
                   <li>Explore the Happy</li>
-                  <li><a href="#">About Happy Project</a></li>
-                  <li><a href="#">Happy Devs</a></li>
-                  <li><a href="{% url 'hub:index' %}">Hub</a></li>
+                  <li><a href="{% url 'api:soon' %}">About Happy Project</a></li>
+                  <li><a href="{% url 'clientauth:login' %}">Happy Devs</a></li>
+                  <li><a href="{% url 'clientauth:login' %}">Hub</a></li>
                   <li><a href="{% url 'gallery:index' %}">Gallery</a></li>
-                  <li><a href="#">Scholarships</a></li>
-                  <li><a href="#">Sponsor</a></li>
+                  <li><a href="{% url 'api:soon' %}">Scholarships</a></li>
+                  <li><a href="{% url 'api:soon' %}">Sponsor</a></li>
                 </ul>
               </div>
               
               <div class="footer__list">
                 <ul>
                   <li>Help</li>
-                  <li><a href="#">FAQs</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Happy Community</a></li>
-                  <li><a href="#">Terms of Service</a></li>
-                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="{% url 'api:soon' %}">FAQs</a></li>
+                  <li><a href="{% url 'api:soon' %}">Privacy Policy</a></li>
+                  <li><a href="{% url 'api:soon' %}">Happy Community</a></li>
+                  <li><a href="{% url 'api:soon' %}">Terms of Service</a></li>
+                  <li><a href="{% url 'api:soon' %}">Contact Us</a></li>
                 </ul>
               </div>
               
               <div class="download-buttons">
                 <h5>Get In</h5>
                 {# TODO: populate the routes #}
-                <a href="{% url 'clientauth:index' %}" class="google-play">
+                <a href="{% url 'clientauth:login' %}" class="google-play">
                   <i class="fad fa-book-reader"></i>
                   <div class="button-content">
                     <h6>LOG IN AS <span>A Student</span></h6>
                   </div>
                 </a>
                 
-                <a href="{% url 'clientauth:index' %}" class="apple-store">
+                <a href="{% url 'clientauth:login' %}" class="apple-store">
                   <i class="fad fa-chalkboard-teacher"></i>
                   <div class="button-content">
                     <h6>LOG IN AS<span>A Teacher</span></h6>
@@ -77,7 +77,7 @@
         
         <div class="row">
           <div class="footer__copy">
-            <h6>&copy; HAPPY DEVS 2021</h6>
+            <h6>&copy; HAPPY PROJECT FOUNDATION {% now 'Y' %}</h6>
           </div>
         </div>
      

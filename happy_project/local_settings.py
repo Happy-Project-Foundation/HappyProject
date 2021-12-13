@@ -12,7 +12,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1"]
 
-
 INSTALLED_APPS = [
     # my apps
     'clientauth.apps.ClientAuthConfig',
@@ -61,14 +60,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'happy_project.wsgi.application'
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -85,10 +82,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'watchdog.HappyPerson'
+LOGIN_URL = 'clientauth:login'
+LOGIN_REDIRECT_URL = 'api:stray'
+LOGOUT_REDIRECT_URL = 'home:index'

@@ -3,7 +3,7 @@
 ### A project to *empower* needy-students.
 
 Happy Project is a non-profit initiation founded by IT people from Jaffna, Sri Lanka. This is to help students in need
-and couldn't get hold of it. This project is originally targetted towards Sri Lankan Students, but people from other
+and couldn't get hold of it. This project is originally targeted towards Sri Lankan Students, but people from other
 region also, with few alteration to the source code.
 
 ---
@@ -11,13 +11,13 @@ region also, with few alteration to the source code.
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-Refer deplyment section for deployment process.
-**It is recommended to create an isolated environment as Happy Project uses latet, pre-release versions to stay
-future proof**
+Refer deployment section for deployment process.
+**It is recommended to create an isolated environment as Happy Project uses latest, pre-release versions to stay
+future-proof**
 
 ### Prerequisites
 
-All the backend and neccessary prerequisites are mentioned in `requirements.txt`. They are mostly...
+All the backend and necessary prerequisites are mentioned in `requirements.txt`. They are mostly...
 ```
 django **4.0**
 django-storages
@@ -58,7 +58,7 @@ Please if someone can, write tests and create a pull request
 Originally, Happy Project is deployed as webapp in [Heroku](https://www.heroku.com). Hence, you will
 see `Procfile; runtime.txt;` etc. But the source itself can be hosted anywhere that can run django apps.
 
-***In future, it is anticipated that a desktop(offline) version can be supported via APIs***
+***In the future, it is anticipated that a desktop(offline) version can be supported via APIs***
 
 ## Versioning
 

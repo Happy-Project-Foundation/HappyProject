@@ -1,12 +1,38 @@
-from django.http.response import HttpResponseServerError
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http.response import HttpResponseRedirect, HttpResponseServerError
+from django.urls import reverse
 from django.views.generic import ListView
 
-from .models import Resource
 from blog.models import Blog
+from .models import Resource
 
 
-class HubView(ListView):
-    template_name = "hub/hub.html"
+# index view ----------------------------------------------
+@login_required(login_url='clientauth:login')
+def hub_index(req):
+    # almost unreachable
+    return HttpResponseRedirect(reverse('api:stray'))
+
+
+# noinspection PyShadowingBuiltins,PyProtectedMember
+# @login_required(login_url='clientauth:login')
+# def student(req):
+#     """
+#     TODO: integrate pagination
+#     """
+#     context = dict()
+#     context["page_title"] = "Happy Hub | Happy Project 😊"
+#     context["types"] = [type[1] for type in Resource._types]
+#     context["subjects"] = [subject[1] for subject in Resource._subjects]
+#     context["blogs"] = Blog.objects.all().order_by("title")[:8]
+#
+#     return render(
+#         request=req, template_name="hub/student_hub.html"
+#     )
+
+class StudentHubView(LoginRequiredMixin, ListView):
+    template_name = "hub/student_hub.html"
     paginate_by = 15
     model = Resource
     ordering = ["title"]
@@ -32,16 +58,13 @@ class HubView(ListView):
 
         else:
             return queryset
-    
-
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
         # NOTE: Test var.
-        context["user"] = "student"
         context["page_title"] = "Happy Hub | Happy Project 😊"
-        
+
         context["types"] = [type[1] for type in Resource._types]
         context["subjects"] = [subject[1] for subject in Resource._subjects]
 
@@ -49,4 +72,3 @@ class HubView(ListView):
         context["blogs"] = Blog.objects.all().order_by("title")[:8]
 
         return context
-    

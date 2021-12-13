@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'clientauth/common/head.html' %}
+    {% block custom_css %}{% endblock custom_css %}
+</head>
+
+<body>
+
+    {% block children %}{% endblock children %}
+
+    {% include 'clientauth/common/scripts.html' %}
+</body>
+</html>
