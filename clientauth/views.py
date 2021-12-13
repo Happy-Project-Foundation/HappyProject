@@ -59,7 +59,7 @@ def join(req):
         except:
             return HttpResponseServerError()
         else:
-            return HttpResponseRedirect(=
+            return HttpResponseRedirect(
                 reverse_lazy('clientauth:login')
             )
 
