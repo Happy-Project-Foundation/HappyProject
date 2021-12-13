@@ -1415,10 +1415,6 @@ input.sm-content {
     display: inline-block;
 }
 
-.form-body.without-side .website-logo-inside .logo {
-    background-image: url("../images/logo-dark.svg");
-}
-
 .form-body.without-side .form-holder .form-content ::-webkit-input-placeholder {
     color: #000;
 }
@@ -1745,16 +1741,9 @@ input.sm-content {
         bottom: initial;
     }
 
-    .website-logo .logo {
-        background-image: url("../images/logo-light.svg");
-    }
 
     .form-body.without-side .img-holder {
         display: inline-block;
-    }
-
-    .form-body.without-side .website-logo .logo {
-        background-image: url("../images/logo-light.svg");
     }
 
     .form-body.without-side .form-holder .form-content {
