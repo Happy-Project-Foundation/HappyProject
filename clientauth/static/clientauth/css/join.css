@@ -14,10 +14,6 @@
     width: 100px;
 }
 
-.website-logo .logo {
-    background-image: url("../images/logo-light.svg");
-}
-
 .website-logo .logo img {
     width: 100px;
 }
@@ -26,9 +22,6 @@
     width: 100px;
 }
 
-.website-logo-inside .logo {
-    background-image: url("../images/logo-light.svg");
-}
 
 .website-logo-inside .logo img {
     width: 100px;
@@ -466,13 +459,5 @@
         left: 50px;
         right: initial;
         bottom: initial;
-    }
-
-    .website-logo .logo {
-        background-image: url("../images/logo-dark.svg");
-    }
-
-    .form-body.without-side .website-logo .logo {
-        background-image: url("../images/logo-light.svg");
     }
 }

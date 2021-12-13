@@ -1,4 +1,6 @@
 from pathlib import Path
+import os
+import django_heroku as dh
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -8,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'happyProj3ctbyShantho$h&B1rnadin3rick'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["happyprojectapp.herokuapp.com"]
 
@@ -62,8 +64,13 @@ WSGI_APPLICATION = 'happy_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv("POSTGRESQL_DBNAME"),
+        'USER': os.getenv("POSTGRESQL_USER"),
+        'PASSWORD': os.getenv("POSTGRESQL_PASSWD"),
+        'HOST': os.getenv("POSTGRESQL_HOST"),
+        'PORT': int(os.getenv("POSTGRESQL_PORT")),
+
     }
 }
 
@@ -94,3 +101,6 @@ AUTH_USER_MODEL = 'watchdog.HappyPerson'
 LOGIN_URL = 'clientauth:login'
 LOGIN_REDIRECT_URL = 'api:stray'
 LOGOUT_REDIRECT_URL = 'home:index'
+
+dh.settings(locals(), test_runner=False)
+
