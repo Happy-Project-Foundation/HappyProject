@@ -4,7 +4,6 @@ from django.http import HttpResponseRedirect, HttpResponseServerError
 from django.shortcuts import render
 from django.urls import reverse_lazy
 
-
 from watchdog.models import HappyPerson
 
 
@@ -44,7 +43,7 @@ def join(req):
         last_name = req.POST['last_name']
         role = int(req.POST['rad'][0])
         passwd = req.POST['passwd']
-
+        
         try:
             new_person = HappyPerson.objects.create_user(
                 email=email,
@@ -60,7 +59,7 @@ def join(req):
         except:
             return HttpResponseServerError()
         else:
-            return HttpResponseRedirect(
+            return HttpResponseRedirect(=
                 reverse_lazy('clientauth:login')
             )
 

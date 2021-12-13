@@ -1,4 +1,3 @@
-
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -34,10 +33,8 @@ def hub_index(req):
 #         request=req, template_name="hub/student_hub.html"
 #     )
 
-
 class StudentHubView(LoginRequiredMixin ,ListView):
     template_name = "hub/studet_hub.html"
-
     paginate_by = 15
     model = Resource
     ordering = ["title"]

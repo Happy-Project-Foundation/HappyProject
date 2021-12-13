@@ -1,5 +1,4 @@
 from django.urls import path
-
 from .views import hub_index, StudentHubView
 
 app_name = "hub"
