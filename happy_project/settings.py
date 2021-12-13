@@ -64,8 +64,13 @@ WSGI_APPLICATION = 'happy_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv("POSTGRESQL_DBNAME"),
+        'USER': os.getenv("POSTGRESQL_USER"),
+        'PASSWORD': os.getenv("POSTGRESQL_PASSWD"),
+        'HOST': os.getenv("POSTGRESQL_HOST"),
+        'PORT': int(os.getenv("POSTGRESQL_PORT")),
+
     }
 }
 
