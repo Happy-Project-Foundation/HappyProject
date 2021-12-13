@@ -1,0 +1,69 @@
+{% extends 'clientauth/common/base.html' %}
+{% load static %}
+
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'clientauth/css/join.css' %}">
+{% endblock custom_css %}
+
+{% block children %}
+<div class="form-body">
+    <div class="row">
+        <div class="img-holder">
+            <div class="bg"></div>
+            <div class="info-holder">
+                <h3>Hey there! Join the Happy Community!</h3>
+                <p>
+                    Make 'em Happy 😊<br><br>
+
+                    Join the Happy Community and become eligible to obtain all the features
+                    available to a Happy Person.
+                    
+                </p>
+            </div>
+        </div>
+        <div class="form-holder">
+            <div class="form-content form-sm">
+                <div class="form-items">
+                    <h3 class="form-title">Let's Make you a Happy</h3>
+                    <form method="post" action="{% url 'clientauth:join' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Few About you...</label>
+                            <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
+                            <input type="text" class="form-control" name="last_name" placeholder="Last Name" required>
+                            <input type="email" class="form-control" name="email" placeholder="E-mail Address" required>
+                            <input type="password" class="form-control" name="passwd" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <label>You want to join as a...</label>
+                            <div class="custom-options">
+                                <input type="radio" id="1" name="rad" value="1"><label for="1">Student</label>
+                                <input type="radio" id="2" name="rad" value="2"><label for="2">Teacher</label>
+                                <input type="radio" id="3" name="rad" value="3"><label for="3">Dev</label>
+                                <input type="radio" id="5" name="rad" value="5"><label for="5">Donor</label>
+                                <input type="radio" id="4" name="rad" value="4"><label for="4">Gazer</label>
+                                <input type="radio" id="0" name="rad" value="0"><label for="0">Admin</label>
+                            </div>
+                            {% comment %} <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="School Name">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Graduation date">
+                                </div>
+                            </div> {% endcomment %}
+                        </div>
+                        <div class="form-group">
+                            <label>Your Moto</label>
+                            <textarea class="form-control"></textarea>
+                        </div>
+                        <div class="form-button text-right">
+                                <button id="submit" type="submit" class="ibtn">Join!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock children %}
