@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {# TODO: add manifest file #}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'watchdog/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'watchdog/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'watchdog/favicon/favicon-16x16.png' %}">
+    {% comment %} <link rel="manifest" href="assets/favicon/site.html">  {% endcomment %}
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" >
+    <link rel="stylesheet" href="{% static 'watchdog/css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'watchdog/soon/css/parallax-hero.css' %}">
+    <link rel="stylesheet" href="{% static 'watchdog/soon/css/style.css' %}">
+
+
+	<title>Nightly Page | Happy Project 😊</title>
+
+</head>
+<body class="side-panel-light has-loading-screen color-theme-blue" data-background-color="#000000">
+
+	<div id="page">
+		<div class="cd-background-wrapper">
+			<figure class="cd-floating-background">
+				<div class="base-layer">
+                    <canvas id="displayCanvas"></canvas>
+                </div>
+
+				<div class="layer animate pointer-events-none" data-layer-depth="550">
+                    <div id="particles-js"></div>
+                </div>
+
+				<div class="layer animate" data-layer-depth="100">
+					<div id="content">
+						<div class="content-wrapper">
+							<div class="container">
+                                <div class="brand">
+                                    <a href="{% url 'home:index' %}">
+                                        <img src="{% static 'watchdog/images/pre-loader-logo.png' %}" alt="Happy-Project-Logo">
+                                    </a>
+                                </div>
+
+								<div class="heading">
+									<h1 class="large">Oopsie!<br> Still in Development</h1>
+                                    <p>We are very sorry for being lazy😪<br>But check later, we 🤞 in future this will be available</p>
+								</div>
+
+								<a href="{% url 'home:index' %}" class="btn btn-outline-dark">Home</a>
+								<a href="{% url 'gallery:index' %}" class="btn btn-border">Gallery</a>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</figure>
+
+		</div>
+	</div>
+
+	<script src="{% static 'watchdog/js/jquery-3.6.0.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'watchdog/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'watchdog/soon/js/pace.min.js' %}"></script>
+	<script src="{% static 'watchdog/soon/js/parallax-hero.js' %}"></script>
+	<script src="{% static 'watchdog/soon/js/modernizr.js' %}"></script>
+	<script src="{% static 'watchdog/soon/js/particle-sphere.js' %}"></script>
+	<script src="{% static 'watchdog/soon/js/custom.js' %}"></script>
+
+    <script type="text/javascript">
+
+        // RGB Color
+        const r = 51;
+        const g = 200;
+        const b = 240;
+        const backgroundColor = "#000000";
+        window.addEventListener("load", particleSphree(r,g,b, backgroundColor), false);
+
+	</script>
+
+</body>
+</html>
