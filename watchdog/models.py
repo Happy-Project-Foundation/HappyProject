@@ -111,6 +111,10 @@ class HappyPerson(AbstractBaseUser, PermissionsMixin):
         ),
     )
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
+    is_verified = models.BooleanField(
+        verbose_name="Whether person is verified",
+        default=False
+    )
 
     objects = HappyPersonManager()
 

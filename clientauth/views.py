@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponseServerError
 from django.shortcuts import render
 from django.urls import reverse_lazy
 
+from hub.models import Student
 from watchdog.models import HappyPerson
 
 
@@ -43,7 +44,7 @@ def join(req):
         last_name = req.POST['last_name']
         role = int(req.POST['rad'][0])
         passwd = req.POST['passwd']
-        
+
         try:
             new_person = HappyPerson.objects.create_user(
                 email=email,
@@ -54,7 +55,6 @@ def join(req):
             new_person.role = role
             if role != 1:
                 new_person.is_staff = True
-                new_person.is_active = False
             new_person.save()
         except:
             return HttpResponseServerError()
@@ -68,3 +68,60 @@ def join(req):
             request=req,
             template_name="clientauth/join.html"
         )
+
+
+# onboarding views -----------------------------------------------------------------------------------------------------
+def onboard_student(req):
+    if req.user.is_authenticated and req.user.is_verified and (req.user.role != 1):
+        return HttpResponseRedirect(
+            reverse_lazy('api:stray')
+        )
+
+    if req.method == "POST":
+        try:
+            # parse user inputs
+            country = str(req.POST["country"]).lower()
+            lang = req.POST["lang"].lower()
+            motto = req.POST["motto"]
+            school = req.POST["school"].title()
+            age = int(req.POST["age"])
+            resources = parse_text_area(req.POST["resources"])
+            subjects = parse_text_area(req.POST["subjects"])
+
+            # create a student model
+            student = Student(
+                student=req.user,
+                subjects=subjects,
+                resources=resources,
+                school=school,
+                country=country,
+                motto=motto,
+                language=lang,
+                age=age
+            )
+
+            student.student.is_verified = True
+
+            # commit the change
+            student.save()
+
+        except Exception as e:
+            print(e.__str__())
+            return HttpResponseServerError()
+        else:
+            return HttpResponseRedirect(
+                reverse_lazy("hub:student")
+            )
+    else:
+        return render(
+            request=req,
+            template_name="clientauth/onboarding/student.html"
+        )
+
+
+# utils --------------------------------------------------------------------------------------------
+def parse_text_area(arg: str) -> str:
+    return ",".join([
+        r.lower().strip(" ") for r in str(arg).split(",")
+        if (not r.isdigit())
+    ])
