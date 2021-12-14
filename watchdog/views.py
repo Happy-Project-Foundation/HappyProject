@@ -10,9 +10,14 @@ from .models import (
 # TODO: change the reverse paths
 def stray_user(req):
     if req.user.role == STUDENT:
-        return HttpResponseRedirect(
-            reverse('hub:student')
-        )
+        if req.user.is_verified:
+            return HttpResponseRedirect(
+                reverse('hub:student')
+            )
+        else:
+            return HttpResponseRedirect(
+                reverse('clientauth:onboard_student')
+            )
     elif req.user.role == TEACHER:
         return HttpResponseRedirect(
             reverse('hub:teacher')
