@@ -14,11 +14,9 @@
 
 				<div class="col-md-4 col-sm-12 col-xs-12 text-center">
 					<a class="navbar-brand" href="{% url 'home:index' %}"><img src="{% static 'watchdog/images/happy-logo-banner.png' %}" alt="happy-project-foundation_logo" /></a>
-					
-					{# TODO: display username #}
+
 					{# TODO: change url to navigate to the profile edit #}
 					<a href="{% url 'api:soon' %}" class="d-block text-logo">{{ name | upper | truncatewords:3}}<span class="dot">.</span></a>
-					{# TODO: display user's bio #}
 					<span class="slogan d-block">{{ motto | title }}</span>
 				</div>
 
