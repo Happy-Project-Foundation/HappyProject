@@ -38,7 +38,7 @@ class Resource(models.Model):
 
 
 class Student(models.Model):
-    student = models.OneToOneField(HappyPerson, on_delete=models.CASCADE, to_field=HappyPerson.USERNAME_FIELD)
+    student = models.OneToOneField(HappyPerson, on_delete=models.CASCADE)
     subjects = models.TextField(verbose_name="Subjects a student follows")
     resources = models.TextField(verbose_name="Resources a student needs")
     school = models.CharField(verbose_name="School student belongs to", max_length=100,
@@ -48,3 +48,6 @@ class Student(models.Model):
                              default="We work in dark to save the light")
     language = models.CharField(verbose_name="Language student preferes", max_length=5, default="en_US")
     age = models.IntegerField(verbose_name="Age of the student", default=18)
+
+    def __str__(self):
+        return self.student.email

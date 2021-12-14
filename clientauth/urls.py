@@ -3,7 +3,7 @@ from django.urls import path
 from clientauth.views import (
     ClientLoginView, join, PasswordResetActionView,
     PasswordResetSuccessView, PasswordResetRequestedView,
-    ForgotPasswordView, StudentOnboardingView
+    ForgotPasswordView, onboard_student
 )
 
 from django.contrib.auth.views import LogoutView
@@ -22,5 +22,5 @@ urlpatterns = [
     path('password_reset_success', PasswordResetSuccessView.as_view(), name="password_reset_success"),
 
     # onboardings
-    path('onboard/student', StudentOnboardingView.as_view(), name="onboard_student")
+    path('onboard/student', onboard_student, name="onboard_student")
 ]

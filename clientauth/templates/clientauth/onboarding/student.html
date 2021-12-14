@@ -36,7 +36,8 @@
                                    aria-controls="step2" aria-selected="false">Service Customizations</a>
                             </li>
                         </ul>
-                        <form>
+                        <form method="post" action="{% url 'clientauth:onboard_student' %}">
+                            {% csrf_token %}
                             <div class="tab-content" id="stepsTabContent">
                                 {% include 'clientauth/onboarding/components/student_personal_info.html' %}
 
