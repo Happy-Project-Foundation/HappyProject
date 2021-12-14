@@ -24,10 +24,10 @@ urlpatterns = [
     path('gallery/', include('gallery.urls')),
     path('hub/', include('hub.urls')),
     path('api/', include('watchdog.urls')),
-    path('test-admin/', auth_views.LoginView.as_view(
+    path('gateway/', auth_views.LoginView.as_view(
         template_name='clientauth/login.html',
         next_page="/guard/",
         redirect_authenticated_user=True
-    ), name="admin"),
+    ), name="gateway"),
     path('guard/', admin.site.urls),
 ]

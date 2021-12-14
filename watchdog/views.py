@@ -36,7 +36,7 @@ def stray_user(req):
         )
     elif req.user.role == ADMIN:
         return HttpResponseRedirect(
-            reverse('admin')
+            reverse('gateway')
         )
     else:
         return HttpResponseBadRequest()
