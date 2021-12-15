@@ -1,4 +1,5 @@
 # Happy Project 😊
+[![CodeQL](https://github.com/Happy-Project-Foundation/HappyProject/actions/workflows/codeql-analysis.yml/badge.svg?branch=prod)](https://github.com/Happy-Project-Foundation/HappyProject/actions/workflows/codeql-analysis.yml)
 
 ### A project to *empower* needy-students.
 
