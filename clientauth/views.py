@@ -101,8 +101,10 @@ def onboard_student(req):
             )
 
             student.student.is_verified = True
+            print(student.student.is_verified)
 
             # commit the change
+            student.student.save()
             student.save()
 
         except Exception as e:
