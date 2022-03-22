@@ -34,7 +34,7 @@ def hub_index(req):
 class StudentHubView(ListView):
     template_name = "hub/student_hub.html"
 #     paginate_by = 15
-#     model = Resource
+    model = Resource
 #     ordering = ["title"]
 
     # student specific attr(s)
