@@ -31,7 +31,7 @@ def hub_index(req):
 #         request=req, template_name="hub/student_hub.html"
 #     )
 
-class StudentHubView(LoginRequiredMixin, ListView):
+class StudentHubView(ListView):
     template_name = "hub/student_hub.html"
     paginate_by = 15
     model = Resource
