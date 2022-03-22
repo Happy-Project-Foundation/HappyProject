@@ -12,7 +12,7 @@ SECRET_KEY = 'happyProj3ctbyShantho$h&B1rnadin3rick'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["happyprojectapp.herokuapp.com"]
+ALLOWED_HOSTS = ["happyproject.birnadine.guru", "happyprojectapp.herokuapp.com"]
 
 INSTALLED_APPS = [
     # my apps
